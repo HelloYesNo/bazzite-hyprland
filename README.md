@@ -130,6 +130,20 @@ The [Containerfile](./Containerfile) defines the operations used to customize th
 
 The [build.sh](./build_files/build.sh) file is called from your Containerfile. It is the best place to install new packages or make any other customization to your system. There are customization examples contained within it for your perusal.
 
+This template includes Hyprland and Quickshell for a customizable desktop environment when switching from Game Mode to Desktop Mode on Steam Deck. The build.sh script installs:
+
+- **Hyprland**: Dynamic tiling Wayland compositor
+- **Quickshell**: Flexible toolkit for making desktop shells with QtQuick
+- **Essential utilities**: hyprpaper, hyprpicker, hypridle, hyprlock, swww, mpvpaper
+- **Material Design Icons** font for improved UI consistency
+- **SDDM session integration** for easy desktop switching
+
+After installation, users can customize their desktop using the provided `ujust` commands:
+- `ujust install-hyprland-rice` - Install popular HyprlandDE-Quickshell dotfiles
+- `ujust install-hyprswitch` - Install optional window switcher
+- `ujust install-hyprland-themes` - Install additional icon and cursor themes
+- `ujust reset-hyprland-config` - Reset to default configuration
+
 ## build.yml
 
 The [build.yml](./.github/workflows/build.yml) Github Actions workflow creates your custom OCI image and publishes it to the Github Container Registry (GHCR). By default, the image name will match the Github repository name. There are several environment variables at the start of the workflow which may be of interest to change.
